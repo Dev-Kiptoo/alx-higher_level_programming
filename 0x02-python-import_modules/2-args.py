@@ -1,16 +1,18 @@
 #!/usr/bin/python3
-
 if __name__ == "__main__":
-    """A function that prints the arguments put in the terminale
-    c means count"""
     import sys
+    i = len(sys.argv) - 1
 
-    c = len(sys.argv) - 1
-    if c == 0:
-        print("0 arguments.")
-    elif c == 1:
-        print("1 argument:")
+    if i == 0:
+        print("{} arguments.".format(i))
+    elif i == 1:
+        print("{} argument:".format(i))
     else:
-        print("{} arguments:".format(c))
-    for i in range(c):
-        print("{} : {}".format(i + 1, sys.argv[i + 1]))
+        print("{} arguments:".format(i))
+
+    if i >= 1:
+        i = 0
+        for arg in sys.argv:
+            if i != 0:
+                print("{}: {}".format(i, arg))
+            i += 1
