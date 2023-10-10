@@ -1,15 +1,19 @@
 #!/usr/bin/python3
-import random
-import sys
-from time import sleep
-import datetime
+'''append_after'''
 
-for i in range(10000):
-    sleep(random.random())
-    sys.stdout.write("{:d}.{:d}.{:d}.{:d} - [{}] \"GET /projects/260 HTTP/1.1\" {} {}\n".format(
-        random.randint(1, 255), random.randint(1, 255), random.randint(1, 255), random.randint(1, 255),
-        datetime.datetime.now(),
-        random.choice([200, 301, 400, 401, 403, 404, 405, 500]),
-        random.randint(1, 1024)
-    ))
-    sys.stdout.flush()
+
+def append_after(filename="", search_string="", new_string=""):
+	'''search and update'''
+	read = []
+	with open(filename, "r", encoding="utf-8") as f:
+		read = f.readlines()
+		index = 0
+
+		while index < len(read):
+			if search_string in read[index]:
+				read[index:index + 1] = [read[index], new_string]
+				index += 1
+			index += 1
+
+	with open(filename, "w", encoding="utf-8") as file:
+		file.writelines(read)
