@@ -1,2 +1,2 @@
---CREATing first_tavle if it does_not exist wit the id and the name
-CREATE TABLE IF NOT EXISTS 'first_table'('id' INT, 'name' VARCHAR(256));
+-- Creates a table called first_table with values id and name in my MySQL server.
+CREATE TABLE IF NOT EXISTS `first_table` (`id` INT, `name` VARCHAR(256));

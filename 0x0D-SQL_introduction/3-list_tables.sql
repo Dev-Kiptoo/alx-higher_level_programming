@@ -1,3 +1,2 @@
---sHOWING TABLES
---FROM the current database
+-- Lists all tables of a database on my MySQL server.
 SHOW TABLES;
