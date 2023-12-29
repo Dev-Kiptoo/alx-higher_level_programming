@@ -1,7 +1,7 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///flask.db"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format("root", "root", "my_db"), pool_pre_ping=True)
+Base.metadata.create_all(engine)
 
-db = SQLAlchemy(app)
+session = Session(engine)
+for state in session.query(State).order_by(State.id).all(): # HERE: no SQL query, only objects!
+    print("{}: {}".format(state.id, state.name))
+session.close()
