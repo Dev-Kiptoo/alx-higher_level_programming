@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Bethuu/alx-higher_level_programming/SQL_Querying/AIRBNB.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="150"/><column_width id="3" width="2851"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,9:mainlocations"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">SELECT * FROM &quot;services&quot;;
+DROP TABLE t;
+DROP TABLE r;
+DROP TABLE loc;
+DROP TABLE loca;
+
+SELECT * FROM &quot;services&quot;;
+ALTER TABLE services DROP COLUMN id;
+
+SELECT &quot;id&quot;, &quot;name&quot; FROM &quot;users&quot; WHERE id = (
+	SELECT &quot;user_id&quot; FROM &quot;services&quot; WHERE &quot;room_id&quot; IN (
+		SELECT &quot;id&quot; FROM &quot;room&quot; WHERE &quot;aprtment_name&quot; = &quot;BARAKA&quot;
+	)
+);
+
+SELECT * FROM &quot;users&quot;;
+SELECT * FROM &quot;services&quot;;
+SELECT * FROM &quot;room&quot;;
+
+CREATE VIEW &quot;apartment&quot; AS
+SELECT &quot;id&quot;, &quot;name&quot;, &quot;room_id&quot;, &quot;user_id&quot;, &quot;type&quot; FROM &quot;users&quot;
+JOIN ON &quot;room&quot; WHERE &quot;room&quot;.&quot;id&quot; = &quot;services&quot;.&quot;room_id&quot;;</sql><current_tab id="0"/></tab_sql></sqlb_project>

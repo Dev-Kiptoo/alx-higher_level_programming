@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS  "riders" (
+CREATE TABLE IF NOT EXISTS  "cards" (
         "id" INTEGER,
         "name" TEXT NOT NULL,
         PRIMARY KEY ("id")
@@ -9,9 +9,14 @@ CREATE TABLE IF NOT EXISTS "stations" (
         "line" TEXT NOT NULL,
         PRIMARY KEY ("id")
 );
-CREATE TABLE IF NOT EXISTS "visits" (
-        "rider_id" INTEGER,
+CREATE TABLE IF NOT EXISTS "swipes" (
+        "id" INTEGER,
+        "card_id" INTEGER,
         "station_id" INTEGER,
-        FOREIGN KEY ("rider_id") REFERENCES "riders"("id"),
+        "type" TEXT NOT NULL CHECK("type" IN ("enter","exit","deposit")),
+        "datetime" NUMERIC NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        "Amount" NUMERIC NOT NULL CHECK ("Amount" != 0),
+        PRIMARY KEY ("id"),
+        FOREIGN KEY ("card_id") REFERENCES "cards"("id"),
         FOREIGN KEY ("station_id") REFERENCES "stations"("id")
 );

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Bethuu/alx-higher_level_programming/SQL_Querying/Relational Databases/mfa1.db" readonly="0" foreign_keys="" case_sensitive_like="" temp_store="" wal_autocheckpoint="" synchronous=""/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="150"/><column_width id="3" width="1535"/><column_width id="4" width="0"/></tab_structure><tab_browse><current_table name="0,0:"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">SELECT * FROM collections;
+
+DELETE FROM collections WHERE acquired = NULL;
+
+INSERT INTO collections (&quot;title&quot;, &quot;accession_number&quot;, &quot;acquired&quot;) VALUES
+	(&quot;Tile Lunette&quot;, &quot;06.2437&quot;, &quot;1906-11-08&quot;),
+	(&quot;Statuette of a shrew&quot;, &quot;01.105&quot;, &quot;1901-02-11&quot;);</sql><current_tab id="0"/></tab_sql></sqlb_project>
